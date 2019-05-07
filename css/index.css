@@ -24,10 +24,10 @@
 .history {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: flex-end;
 }
 
-.history img{
+.history img {
     width: 20rem;
     height: 20rem;
 }
@@ -38,4 +38,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 5rem 10rem 5rem 0rem;
+}
+
+.history div:nth-of-type(2) {
+    align-self: flex-start;
+    padding-left: 10rem;
 }
