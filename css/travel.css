@@ -1,19 +1,15 @@
-.introduction {
+section {
     padding-top: 12rem;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 }
 
-.introduction p {
+.introduction {
     width: 45vw;
     padding-right: 2rem;
 }
 
-.slidecontainer {
-    width: 45vw;
-}
-  
 .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none; /* same */
@@ -46,4 +42,8 @@
     border-radius: 50%;
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
+}
+
+.results {
+    width: 45vw;
 }

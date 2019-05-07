@@ -22,8 +22,8 @@
     </nav>
 
     <main>
-        <section class="introduction">
-            <div>
+        <section>
+            <div class="introduction">
                 <p>
                     Faisons le voyage ensemble <br>
                     A l’aide du slider, sélectionnez la vitesse que vous désirez pour
@@ -31,11 +31,15 @@
                     durée du voyage et le mode de transport qui correspond.
                 </p>
             </div>
-            <div class="slidecontainer">
-                <input type="range" min="10" max="5500" value="2745" class="slider" id="myRange">
+            <div class="results">
+                <input type="range" min="10" max="5500" value="10" class="slider" id="myRange">
+
+                <p>Temps de trajet : <span id="time"></span></p>
             </div>
         </section>
     </main>
+
+    <script src="scripts/travel.js"></script>
 </body>
 
 </html>
