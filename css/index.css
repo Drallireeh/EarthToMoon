@@ -1,0 +1,41 @@
+.introduction {
+    color: white;
+    font-family: Montserrat;
+    height: 100vh;
+    background-image: url("../assets/images/earth.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.introduction h1 {
+    font-size: 60px;
+}
+
+.introduction p {
+    font-size: 45px;
+    width: 75%
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.history img{
+    width: 20rem;
+    height: 20rem;
+}
+
+.history div {
+    width: 20rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
