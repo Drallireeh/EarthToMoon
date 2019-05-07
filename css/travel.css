@@ -1,0 +1,49 @@
+.introduction {
+    padding-top: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.introduction p {
+    width: 45vw;
+    padding-right: 2rem;
+}
+
+.slidecontainer {
+    width: 45vw;
+}
+  
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none; /* same */
+    width: 100%;
+    height: 25px;
+    background: #787878;
+    outline: none; /* Remove outline */
+    opacity: 0.7;
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+  
+.slider:hover {
+    opacity: 1;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none; /* same */
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+  
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    border-radius: 50%;
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}

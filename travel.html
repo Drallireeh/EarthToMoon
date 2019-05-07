@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Le voyage</title>
     <link rel="stylesheet" href="css/template.css">
+    <link rel="stylesheet" href="css/travel.css">
 </head>
 
 <body>
@@ -19,6 +20,22 @@
         <a href="spaceview.html">Vue de l'espace</a>
         <a href="travel.html" class="active">Le voyage</a>
     </nav>
+
+    <main>
+        <section class="introduction">
+            <div>
+                <p>
+                    Faisons le voyage ensemble <br>
+                    A l’aide du slider, sélectionnez la vitesse que vous désirez pour
+                    faire le voyage de la Terre à la Lune. Nous calculerons pour vous la
+                    durée du voyage et le mode de transport qui correspond.
+                </p>
+            </div>
+            <div class="slidecontainer">
+                <input type="range" min="10" max="5500" value="2745" class="slider" id="myRange">
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
