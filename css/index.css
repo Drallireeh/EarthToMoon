@@ -1,6 +1,5 @@
 .introduction {
     color: white;
-    font-family: Montserrat;
     height: 100vh;
     background-image: url("../assets/images/earth.jpg");
     background-repeat: no-repeat;
@@ -18,7 +17,7 @@
 
 .introduction p {
     font-size: 45px;
-    width: 75%
+    width: 75%;
 }
 
 .history {
@@ -29,7 +28,6 @@
 
 .history img {
     width: 20rem;
-    height: 20rem;
 }
 
 .history div {
@@ -44,4 +42,37 @@
 .history div:nth-of-type(2) {
     align-self: flex-start;
     padding-left: 10rem;
+}
+
+.conclusion {
+    color: white;
+    height: 100vh;
+    background-image: url("../assets/images/moon.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 5rem; 
+}
+
+.conclusion .logos{
+    display:flex;
+    align-items: center;
+}
+
+.conclusion .logos div:first-of-type{
+    padding-right: 2rem;
+}
+
+.conclusion img {
+    width: 30rem;
+}
+
+.conclusion p{
+    padding: 2rem 2rem;
+    font-size: 30px;
+    align-self: flex-end;
 }
