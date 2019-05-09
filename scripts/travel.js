@@ -1,4 +1,6 @@
 let distance_earth_moon = 384400;
+let objects = [{ speed: 10, name: "humain à pied" }, { speed: 65, name: "cheval pur-sang" }, { speed: 325, name: "ferrari" }, { speed: 740, name: "avion jet" }, { speed: 1185, name: "A380" }, { speed: 5500, name: "fusée Apollo 11" }];
+let ms_to_hours = 3600000;
 
 let slider = document.getElementById("myRange");
 let output = document.getElementById("time");
@@ -10,29 +12,22 @@ slider.oninput = function () {
 }
 
 function calculateTimeToMoon(speed) {
-    let time = timeConvert(distance_earth_moon / speed)
+    let time = timeConvert((distance_earth_moon / speed) * ms_to_hours);
     return time;
 }
 
-function timeConvert(value) {
-    let hours = Math.floor(value / 60);
-    let minutes = value % 60;
-    let secondes = minutes.toFixed(2);
-    let secondes_str = secondes.toString();
+function timeConvert(ms) {
+    let hours = ms / (ms_to_hours);
+    let absoluteHours = Math.floor(hours);
+    let h = absoluteHours > 9 ? absoluteHours : '0' + absoluteHours;
 
-    secondes_str = secondes_str.slice(secondes_str.length - 2, secondes_str.length);
-    secondes = parseInt(secondes_str);
-    minutes = Math.trunc(minutes);
+    let minutes = (hours - absoluteHours) * 60;
+    let absoluteMinutes = Math.floor(minutes);
+    let m = absoluteMinutes > 9 ? absoluteMinutes : '0' + absoluteMinutes;
 
-    if (secondes >= 60) {
-        minutes++;
-        secondes -= 60;
-    }
+    let seconds = (minutes - absoluteMinutes) * 60;
+    let absoluteSeconds = Math.floor(seconds);
+    let s = absoluteSeconds > 9 ? absoluteSeconds : '0' + absoluteSeconds;
 
-    if (minutes >= 60) {
-        hours++;
-        minutes -= 60;
-    }
-
-    return hours + ":" + minutes + ":" + secondes;
+    return h + 'h ' + m + 'min ' + s + 'sec';
 }

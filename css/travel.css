@@ -47,3 +47,7 @@ section {
 .results {
     width: 45vw;
 }
+
+.results div p{
+    padding-top: 1rem;
+}
