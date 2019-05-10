@@ -1,6 +1,9 @@
 const loader = new THREE.TextureLoader();
 let something_already_loaded = false;
 
+/**
+ * If everything is loaded, add earth and moon to scene
+ */
 function isEverythingLoaded() {
     if (something_already_loaded) {
         scene.add(earth_mesh, moon_mesh);
@@ -27,7 +30,7 @@ loader.load("../assets/images/texture_earth-5400x2700.jpg", function (texture) {
 loader.load("../assets/images/texture_moon-2048x1024.jpg", function (texture) {
     let moon_material = new THREE.MeshBasicMaterial({ map: texture });
     moon_mesh = new THREE.Mesh(new THREE.SphereGeometry(10, 32, 32), moon_material);
-    moon_mesh.position.set(-60, 0, 0);
+    moon_mesh.position.set(-100, 0, 0);
     isEverythingLoaded();
 }, undefined, function (err) { console.log(err) });
 
@@ -55,7 +58,6 @@ const controls = new THREE.OrbitControls(camera, renderer.domElement);
 const light = new THREE.AmbientLight(0xffffff);
 scene.add(light);
 
-
 window.requestAnimFrame = (function () {
     return window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
@@ -75,10 +77,10 @@ window.requestAnimFrame = (function () {
 function render() {
     // Rotation sur eux-mêmes
     if (earth_mesh && moon_mesh) {
-        earth_mesh.rotation.y -= 0.01;
-        moon_mesh.rotation.y -= 0.01;
+        earth_mesh.rotation.y -= 0.001;
+        moon_mesh.rotation.y -= 0.001;
 
         // Rotation autour d'un point à l'aide d'un pivot
-        pivotPoint.rotation.y -= 0.002;
+        pivotPoint.rotation.y -= 0.009;
     }
 }
