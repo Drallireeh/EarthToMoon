@@ -81,11 +81,11 @@
 
 .bar {
     border-left: 6px solid white;
-    height: 250vh;
+    height: 260vh;
     position: absolute;
-    left: 50%;
-    top: 85%;
-    margin-left: -3px;
+    left: 50vw;
+    top: 80vh;
+    transform: translateX(-3px);
 }
 
 .circle {
@@ -94,12 +94,11 @@
     width: 2rem;
     border-radius: 50%;
     position: absolute;
-    left: 50%;
-    margin-left: -1rem;
-    top: 85%;
-    margin-top: -1rem;
+    left: 50vw;
+    top: 80vh;
+    transform: translate(-1rem, -1rem);
 }
 
 main .circle:nth-child(2) {
-    top: 335vh;
+    top: 340vh;
 }
