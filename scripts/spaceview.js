@@ -12,28 +12,31 @@ function isEverythingLoaded() {
 
 let earth_mesh;
 let moon_mesh;
+let stars_bg
 
 // Create pivot point
 let pivotPoint = new THREE.Object3D();
 
 // Load ressources
-loader.load("../assets/images/texture_earth-5400x2700.jpg", function(texture) {
-    let earth_material = new THREE.MeshBasicMaterial( {map: texture} );
+loader.load("../assets/images/texture_earth-5400x2700.jpg", function (texture) {
+    let earth_material = new THREE.MeshBasicMaterial({ map: texture });
     earth_mesh = new THREE.Mesh(new THREE.SphereGeometry(25, 32, 32), earth_material);
     isEverythingLoaded();
-}, undefined, function(err) { console.log(err)});
+}, undefined, function (err) { console.log(err) });
 
-loader.load("../assets/images/texture_moon-2048x1024.jpg", function(texture) {
-    let moon_material = new THREE.MeshBasicMaterial( {map: texture} );
+loader.load("../assets/images/texture_moon-2048x1024.jpg", function (texture) {
+    let moon_material = new THREE.MeshBasicMaterial({ map: texture });
     moon_mesh = new THREE.Mesh(new THREE.SphereGeometry(10, 32, 32), moon_material);
     moon_mesh.position.set(-60, 0, 0);
     isEverythingLoaded();
-}, undefined, function(err) { console.log(err)});
+}, undefined, function (err) { console.log(err) });
 
-const stars = loader.load("../assets/images/stars-1920x1080.jpg");
+loader.load("../assets/images/stars-1920x1080.jpg", function (texture) {
+    stars_bg = texture;
+    scene.background = stars_bg; // Add bg
+}, undefined, function (err) { console.log(err) });
 
 const scene = new THREE.Scene();
-scene.background = stars; // Add bg
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 5000);
@@ -74,7 +77,7 @@ function render() {
     if (earth_mesh && moon_mesh) {
         earth_mesh.rotation.y -= 0.01;
         moon_mesh.rotation.y -= 0.01;
-    
+
         // Rotation autour d'un point à l'aide d'un pivot
         pivotPoint.rotation.y -= 0.002;
     }
