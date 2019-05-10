@@ -74,12 +74,16 @@ a {
     color: black;
 }
 
+a:hover, .active {
+    color: #94C4EA;
+}
+
 .navigation {
     position: fixed;
     width: 100%;
     font-family: neuropolregular;
     font-size: 1.25rem;
-    background-color: #787878;
+    background-color: #3C6ECF;
     display: flex;
     flex-direction: row;
     align-items: center;

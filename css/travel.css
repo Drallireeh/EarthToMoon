@@ -1,8 +1,15 @@
 section {
-    padding-top: 12rem;
+    background-color: black;
+    background-image: url("../assets/images/earthmoon.png");
+    color: white;
+    height: 100vh;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
+}
+
+h1 {
+    font-size: 1.5rem;
 }
 
 .introduction {
