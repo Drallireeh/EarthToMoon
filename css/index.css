@@ -87,3 +87,19 @@
     top: 85%;
     margin-left: -3px;
 }
+
+.circle {
+    background-color: white;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -1rem;
+    top: 85%;
+    margin-top: -1rem;
+}
+
+main .circle:nth-child(2) {
+    top: 335vh;
+}
