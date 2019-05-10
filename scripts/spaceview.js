@@ -1,8 +1,35 @@
 const loader = new THREE.TextureLoader();
+let something_already_loaded = false;
+
+function isEverythingLoaded() {
+    if (something_already_loaded) {
+        scene.add(earth_mesh, moon_mesh);
+        earth_mesh.add(pivotPoint);
+        pivotPoint.add(moon_mesh);
+    }
+    else something_already_loaded = true;
+}
+
+let earth_mesh;
+let moon_mesh;
+
+// Create pivot point
+let pivotPoint = new THREE.Object3D();
 
 // Load ressources
-const earth_texture = loader.load("../assets/images/texture_earth-5400x2700.jpg");
-const moon_texture = loader.load("../assets/images/texture_moon-2048x1024.jpg");
+loader.load("../assets/images/texture_earth-5400x2700.jpg", function(texture) {
+    let earth_material = new THREE.MeshBasicMaterial( {map: texture} );
+    earth_mesh = new THREE.Mesh(new THREE.SphereGeometry(25, 32, 32), earth_material);
+    isEverythingLoaded();
+}, undefined, function(err) { console.log(err)});
+
+loader.load("../assets/images/texture_moon-2048x1024.jpg", function(texture) {
+    let moon_material = new THREE.MeshBasicMaterial( {map: texture} );
+    moon_mesh = new THREE.Mesh(new THREE.SphereGeometry(10, 32, 32), moon_material);
+    moon_mesh.position.set(-60, 0, 0);
+    isEverythingLoaded();
+}, undefined, function(err) { console.log(err)});
+
 const stars = loader.load("../assets/images/stars-1920x1080.jpg");
 
 const scene = new THREE.Scene();
@@ -25,18 +52,6 @@ const controls = new THREE.OrbitControls(camera, renderer.domElement);
 const light = new THREE.AmbientLight(0xffffff);
 scene.add(light);
 
-// Create Meshes
-let earth_mesh = new THREE.Mesh(new THREE.SphereGeometry(25, 32, 32), new THREE.MeshPhongMaterial({ map: earth_texture }));
-let moon_mesh = new THREE.Mesh(new THREE.SphereGeometry(10, 32, 32), new THREE.MeshPhongMaterial({ map: moon_texture }));
-moon_mesh.position.set(-60, 0, 0);
-
-scene.add(earth_mesh);
-scene.add(moon_mesh);
-
-// Create and initialise pivot point
-let pivotPoint = new THREE.Object3D();
-earth_mesh.add(pivotPoint);
-pivotPoint.add(moon_mesh);
 
 window.requestAnimFrame = (function () {
     return window.requestAnimationFrame ||
@@ -56,9 +71,11 @@ window.requestAnimFrame = (function () {
 
 function render() {
     // Rotation sur eux-mêmes
-    earth_mesh.rotation.y -= 0.01;
-    moon_mesh.rotation.y -= 0.01;
-
-    // Rotation autour d'un point à l'aide d'un pivot
-    pivotPoint.rotation.y -= 0.002; //
+    if (earth_mesh && moon_mesh) {
+        earth_mesh.rotation.y -= 0.01;
+        moon_mesh.rotation.y -= 0.01;
+    
+        // Rotation autour d'un point à l'aide d'un pivot
+        pivotPoint.rotation.y -= 0.002;
+    }
 }
