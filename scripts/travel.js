@@ -1,6 +1,14 @@
-let distance_earth_moon = 384400;
-let objects = [{ speed: 10, name: "un humain à pied" }, { speed: 65, name: "un cheval pur-sang" }, { speed: 325, name: "une ferrari" }, { speed: 740, name: "un avion jet" }, { speed: 1185, name: "un A380" }, { speed: 5500, name: "une fusée Apollo 11" }];
-let ms_to_hours = 3600000;
+const DISTANCE_EARTH_MOON = 384400;
+const MS_TO_HOURS = 3600000;
+
+const objects = [
+    { speed: 10, name: "un humain à pied" },
+    { speed: 65, name: "un cheval pur-sang" },
+    { speed: 325, name: "une ferrari" },
+    { speed: 740, name: "un avion jet" },
+    { speed: 1185, name: "un A380" },
+    { speed: 5500, name: "une fusée Apollo 11" }
+];
 
 let slider = document.getElementById("myRange");
 let time = document.getElementById("time");
@@ -19,12 +27,12 @@ slider.oninput = function () {
 }
 
 function calculateTimeToMoon(speed) {
-    let time = msToHoursMinsSeconds((distance_earth_moon / speed) * ms_to_hours);
+    let time = msToHoursMinsSeconds((DISTANCE_EARTH_MOON / speed) * MS_TO_HOURS);
     return time;
 }
 
 function msToHoursMinsSeconds(ms) {
-    let hours = ms / (ms_to_hours);
+    let hours = ms / (MS_TO_HOURS);
     let absoluteHours = Math.floor(hours);
     let h = absoluteHours > 9 ? absoluteHours : '0' + absoluteHours;
 
@@ -42,7 +50,7 @@ function msToHoursMinsSeconds(ms) {
 function getObjectBySpeed(speed) {
     for (let i = 0; i < objects.length; i++) {
         if (i !== objects.length - 1) {
-            let speed_delta = (objects[i+1].speed - objects[i].speed) / 2;
+            let speed_delta = (objects[i + 1].speed - objects[i].speed) / 2;
             if (speed < objects[i].speed + speed_delta) {
                 return objects[i];
             }
@@ -51,7 +59,7 @@ function getObjectBySpeed(speed) {
             }
         }
         else {
-            return objects[objects.length-1];
+            return objects[objects.length - 1];
         }
     }
 }
