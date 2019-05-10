@@ -10,27 +10,41 @@ const objects = [
     { speed: 5500, name: "une fusée Apollo 11" }
 ];
 
+// Get elements by id
 let slider = document.getElementById("myRange");
+let speed = document.getElementById("speed");
 let time = document.getElementById("time");
 let object_name = document.getElementById("object-name");
 let object_speed = document.getElementById("object-speed");
 
+// Base display
+speed.innerHTML = slider.value;
 time.innerHTML = calculateTimeToMoon(slider.value);
 object_name.innerHTML = getObjectBySpeed(slider.value).name;
 object_speed.innerHTML = getObjectBySpeed(slider.value).speed;
 
+// Called while user interract with slider
 slider.oninput = function () {
     let object = getObjectBySpeed(this.value);
+    speed.innerHTML = this.value;
     time.innerHTML = calculateTimeToMoon(this.value);
     object_name.innerHTML = object.name;
     object_speed.innerHTML = object.speed;
 }
 
+/**
+ * Calculate the time you'll need to go to the moon at this speed.
+ * @param {number} speed Speed in km/h
+ */
 function calculateTimeToMoon(speed) {
     let time = msToHoursMinsSeconds((DISTANCE_EARTH_MOON / speed) * MS_TO_HOURS);
     return time;
 }
 
+/**
+ * Transform a duration in ms in format hh:mm:ss
+ * @param {number} ms milliseconds (ms)
+ */
 function msToHoursMinsSeconds(ms) {
     let hours = ms / (MS_TO_HOURS);
     let absoluteHours = Math.floor(hours);
@@ -47,6 +61,10 @@ function msToHoursMinsSeconds(ms) {
     return h + 'h ' + m + 'min ' + s + 'sec';
 }
 
+/**
+ * Return the object which match the best with your actual speed
+ * @param {number} speed speed in km/h
+ */
 function getObjectBySpeed(speed) {
     for (let i = 0; i < objects.length; i++) {
         if (i !== objects.length - 1) {
