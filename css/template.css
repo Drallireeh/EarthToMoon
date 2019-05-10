@@ -78,6 +78,18 @@ a:hover, .active {
     color: #94C4EA;
 }
 
+p {
+    font-family: 'Space Mono', monospace;
+    font-size: 2.2rem;
+}
+
+h1 {
+    font-family: good_timesregular;
+    padding-bottom: 1rem;
+}
+
+/***** NAVIGATION *****/
+
 .navigation {
     position: fixed;
     width: 100%;
@@ -106,14 +118,4 @@ a:hover, .active {
 
 .navigation a{
     padding: 2rem 1rem;
-}
-
-p {
-    font-family: 'Space Mono', monospace;
-    font-size: 2.2rem;
-}
-
-h1 {
-    font-family: good_timesregular;
-    padding-bottom: 1rem;
 }

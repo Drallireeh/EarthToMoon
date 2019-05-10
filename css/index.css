@@ -1,3 +1,4 @@
+/***** INTRODUCTION *****/
 .introduction {
     color: white;
     height: 100vh;
@@ -18,6 +19,8 @@
 .introduction p {
     width: 75%;
 }
+
+/***** HISTORY *****/
 
 .history {
     background-image: url("../assets/images/stars-1920x1080.jpg");
@@ -60,6 +63,8 @@
     padding-bottom: 3rem;
 }
 
+/***** CONCLUSION *****/
+
 .conclusion {
     color: white;
     height: 100vh;
@@ -90,6 +95,8 @@
 .conclusion p{
     padding: 2rem 2rem;
 }
+
+/***** VERTICAL LINE WITH CIRCLES *****/
 
 .bar {
     border-left: 6px solid white;

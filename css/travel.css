@@ -1,3 +1,7 @@
+h1 {
+    font-size: 1.5rem;
+}
+
 section {
     background-image: url("../assets/images/earthmoon.png");
     color: white;
@@ -7,14 +11,12 @@ section {
     justify-content: center;
 }
 
-h1 {
-    font-size: 1.5rem;
-}
-
 .introduction {
     width: 45vw;
     padding-right: 2rem;
 }
+
+/**** SLIDER ****/
 
 .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
@@ -49,6 +51,8 @@ h1 {
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
+
+/**** RESULTS ****/
 
 .results {
     width: 45vw;
