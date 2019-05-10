@@ -56,9 +56,9 @@ window.requestAnimFrame = (function () {
 
 function render() {
     // Rotation sur eux-mêmes
-    earth_mesh.rotation.y += 0.01;
-    moon_mesh.rotation.y += 0.01;
+    earth_mesh.rotation.y -= 0.01;
+    moon_mesh.rotation.y -= 0.01;
 
     // Rotation autour d'un point à l'aide d'un pivot
-    pivotPoint.rotation.y += 0.002; //
+    pivotPoint.rotation.y -= 0.002; //
 }
